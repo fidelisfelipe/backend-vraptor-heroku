@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- acesso local -->
+		<property name="hibernate.connection.url">jdbc3:postgresql://localhost/backend</property>
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.connection.password">postgres</property>
+
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">false</property>
+<!-- 		<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property> -->
+		<property name="hibernate.current_session_context_class">thread</property>
+
+<!-- 		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property> -->
+
+<!-- 		<property name="hibernate.c3p0.min_size">5</property> -->
+<!-- 		<property name="hibernate.c3p0.max_size">10</property> -->
+<!-- 		<property name="hibernate.c3p0.timeout">1000</property> -->
+<!-- 		<property name="hibernate.c3p0.max_statements">10</property> -->
+<!-- 		<property name="hibernate.c3p0.idle_test_period">3000</property> -->
+
+
+		<!-- entidades -->
+
+		<mapping class="br.com.caelum.vraptor.backend.model.Recurso" />
+		<mapping class="br.com.caelum.vraptor.backend.model.Perfil" />
+		<mapping class="br.com.caelum.vraptor.backend.model.Usuario" />
+		
+
+	</session-factory>
+</hibernate-configuration>

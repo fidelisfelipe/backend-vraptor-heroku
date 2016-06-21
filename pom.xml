@@ -1,0 +1,319 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>br.com.caelum.vraptor</groupId>
+	<artifactId>backend-vraptor</artifactId>
+	<version>4.2.0-RC3-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<description>${project.artifactId}</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<weld.version>2.1.2.Final</weld.version>
+		<vraptor.version>4.2.0-RC3</vraptor.version>
+		<dev.id>Fidelis</dev.id>
+		<dev.name>Fidelis Guimarães</dev.name>
+		<dev.email>atosfiel@gmail.com</dev.email>
+		<dev.organization>Open Source</dev.organization>
+		<dev.organizationUrl>https://github.com/fidelisfelipe</dev.organizationUrl>
+		<dev.role>developer</dev.role>
+		<dev.timezone>-3</dev.timezone>
+	</properties>
+
+	<developers>
+		<developer>
+			<id>${dev.id}</id>
+			<name>${dev.name}</name>
+			<email>${dev.email}</email>
+			<roles>
+				<role>${dev.role}</role>
+			</roles>
+			<timezone>${dev.timezone}</timezone>
+		</developer>
+	</developers>
+
+	<organization>
+		<name>${dev.organization}</name>
+		<url>${dev.organizationUrl}</url>
+	</organization>
+
+	<scm>
+		<url>http://github.com/fidelisfelipe/${project.artifactId}</url>
+		<connection>scm:git:git://github.com/fidelisfelipe/${project.artifactId}</connection>
+		<developerConnection>scm:git:git@github.com:fidelisfelipe/${project.artifactId}.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<licenses>
+		<license>
+			<distribution>repo</distribution>
+			<name>Apache License, Version 2.0</name>
+			<url>http://apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<dependencies>
+		<dependency>
+			<groupId>br.com.caelum</groupId>
+			<artifactId>vraptor</artifactId>
+			<version>${vraptor.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>br.com.caelum.vraptor</groupId>
+			<artifactId>vraptor-i18n</artifactId>
+			<version>4.0.1</version> <!-- or latest version -->
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet-core</artifactId>
+			<version>${weld.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.weld</groupId>
+			<artifactId>weld-core-impl</artifactId>
+			<version>${weld.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.jboss.logging</groupId>
+			<artifactId>jboss-logging</artifactId>
+			<version>3.2.1.Final</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>el-api</artifactId>
+			<version>2.2</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator-cdi</artifactId>
+			<version>5.1.3.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.8.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>br.com.caelum.vraptor</groupId>
+			<artifactId>vraptor-hibernate</artifactId>
+			<version>4.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+		</dependency>
+
+		<!-- BD -->
+
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.1-901.jdbc4</version>
+		</dependency>
+
+		<!-- WS -->
+		<dependency>
+		    <groupId>com.sun.jersey</groupId>
+		    <artifactId>jersey-json</artifactId>
+		    <version>1.19</version>
+		</dependency>
+		<!-- Heroku Web Runner -->
+		<dependency>
+		  <groupId>com.github.jsimone</groupId>
+		  <artifactId>webapp-runner</artifactId>
+		  <version>8.0.33.0</version>
+		  <scope>provided</scope>
+		</dependency>
+    </dependencies>
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<outputDirectory>${basedir}/src/main/webapp/WEB-INF/classes</outputDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.1</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.1</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.scm</groupId>
+						<artifactId>maven-scm-provider-gitexe</artifactId>
+						<version>1.9.2</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+					<wtpversion>2.0</wtpversion>
+					<ajdtVersion>none</ajdtVersion>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<configuration>
+							<target>
+								<copy file="${basedir}/pom-dist.xml" todir="${project.build.directory}" />
+								<replace file="${project.build.directory}/pom-dist.xml"
+									token="VRAPTOR_VERSION_HERE" value="${project.version}" />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<id>distribution</id>
+						<phase>package</phase>
+						<configuration>
+							<descriptors>
+								<descriptor>assembly.xml</descriptor>
+							</descriptors>
+						</configuration>
+						<goals>
+							<goal>assembly</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>distribution-eclipse</id>
+						<phase>package</phase>
+						<configuration>
+							<descriptors>
+								<descriptor>assembly-eclipse.xml</descriptor>
+							</descriptors>
+						</configuration>
+						<goals>
+							<goal>assembly</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.github.jsimone</groupId>
+                                    <artifactId>webapp-runner</artifactId>
+                                    <version>8.0.33.0</version>
+                                    <destFileName>webapp-runner.jar</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+		</plugins>
+	</build>
+
+</project>

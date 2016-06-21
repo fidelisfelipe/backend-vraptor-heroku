@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: backend
+Bundle-SymbolicName: backend
+Bundle-Version: 1.0.0.qualifier
+Export-Package: br.com.caelum.vraptor.backend,
+ br.com.caelum.vraptor.backend.annotations,
+ br.com.caelum.vraptor.backend.business,
+ br.com.caelum.vraptor.backend.business.exception,
+ br.com.caelum.vraptor.backend.common,
+ br.com.caelum.vraptor.backend.controller,
+ br.com.caelum.vraptor.backend.dao,
+ br.com.caelum.vraptor.backend.dao.impl,
+ br.com.caelum.vraptor.backend.model,
+ br.com.caelum.vraptor.backend.util
