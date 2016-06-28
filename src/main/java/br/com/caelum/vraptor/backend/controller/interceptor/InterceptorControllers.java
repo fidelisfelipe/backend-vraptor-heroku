@@ -1,48 +1,43 @@
 package br.com.caelum.vraptor.backend.controller.interceptor;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
+
+import br.com.caelum.vraptor.AfterCall;
+import br.com.caelum.vraptor.AroundCall;
+import br.com.caelum.vraptor.BeforeCall;
 import br.com.caelum.vraptor.InterceptionException;
 import br.com.caelum.vraptor.Intercepts;
-import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.backend.util.ControllerUtil;
-import br.com.caelum.vraptor.controller.ControllerMethod;
-import br.com.caelum.vraptor.core.InterceptorStack;
-import br.com.caelum.vraptor.interceptor.Interceptor;
+import br.com.caelum.vraptor.http.route.Router;
+import br.com.caelum.vraptor.interceptor.SimpleInterceptorStack;
 
 @Intercepts
-public class InterceptorControllers implements Interceptor {
+@RequestScoped
+public class InterceptorControllers{
 
-	private Result result;
-	private HttpServletRequest req;
+	private static Logger log;
 
 	@Deprecated
-	protected InterceptorControllers(){
-		this(null, null);
-	}
-	
-	/**
-	 * @param result
-	 * @param contexto
-	 * @param req
-	 */
-	@Inject
-	public InterceptorControllers(Result result, HttpServletRequest req) {
-		this.result = result;
-		this.req = req;
-	}
-	
-	@Override
-	public void intercept(InterceptorStack stack, ControllerMethod method,
-			Object controllerInstance) throws InterceptionException {
-
-		stack.next(method, controllerInstance);
+	public InterceptorControllers() {
+		log = Logger.getLogger(getClass());
 	}
 
-	@Override
-	public boolean accepts(ControllerMethod method) {
-		return true;
+	@BeforeCall
+	public void before(){
+		log.info("before request...");
+	}
+	
+	@AfterCall
+	public void after(){
+		log.info("after request...");
+	}
+	
+	@AroundCall
+	public void intercept(SimpleInterceptorStack stack) throws InterceptionException {
+		log.info("intercepted request...");
+		stack.next();
 	}
 
 }
