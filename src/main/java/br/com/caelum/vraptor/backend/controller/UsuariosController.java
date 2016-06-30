@@ -1,7 +1,5 @@
 package br.com.caelum.vraptor.backend.controller;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
@@ -17,7 +15,6 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.backend.business.UsuariosLogic;
 import br.com.caelum.vraptor.backend.model.Usuario;
-import br.com.caelum.vraptor.backend.util.ControllerUtil;
 import br.com.caelum.vraptor.view.Results;
 @Path("/usuarios")
 @Controller
@@ -61,7 +58,8 @@ public class UsuariosController {
 		logic.persist(usuario);
 		result.forwardTo(this).index();
 	}
-	public void fail(){
+
+	private void fail(){
 		result.use(Results.json()).withoutRoot().from("fail").serialize();
 		result.nothing();
 	}

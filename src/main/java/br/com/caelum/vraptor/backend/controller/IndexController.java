@@ -43,11 +43,13 @@ public class IndexController {
 		this.result = result;
 		this.req = req;
 	}
-	@Consumes(value = "application/json", options = WithoutRoot.class)
+	/**
+	 * Method of test for Backend online
+	 */
 	@Get
 	@Path("/")
-	public void index() {
-		result.use(Results.json()).from("VRaptor!", "user").serialize();
+	public void test() {
+		result.use(Results.json()).from("Backend Working!", "user").serialize();
 	}
 	class Features {
 		private String function = new String();
@@ -62,21 +64,18 @@ public class IndexController {
 		List<Features> features = new ArrayList<Features>();
 		
 		for (Route route : routes) {
-			if (route.allowedMethods().size() == 1) {
 				Features feature = new Features();
 				feature.function = route.getControllerMethod().getController().getType().getName().replaceAll("^br.*.controller.", "").replaceAll("Controller$", "");
 				feature.rota = route.getOriginalUri();
+				if(route.allowedMethods().size() == 1) {
 				feature.method = route.allowedMethods().toArray()[0].toString();
-				features.add(feature);
-			} else {
-				for (HttpMethod method : route.allowedMethods()) {
-					Features feature = new Features();
-					feature.function = route.getControllerMethod().getController().getType().getName().replaceAll("^br.*.controller.", "").replaceAll("Controller$", "");
-					feature.rota = route.getOriginalUri();
-					feature.method = method.toString();
-					features.add(feature);
+				} else {
+					for (HttpMethod method : route.allowedMethods()) {
+						feature.method += method.toString() + " ";
+					}
+					feature.method.trim();
 				}
-			}
+				features.add(feature);
 		}
 
 		result.use(Results.json()).from(features, "features").serialize();
