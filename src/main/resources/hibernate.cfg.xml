@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
 	<session-factory>
 
@@ -31,17 +31,19 @@
 <!-- 		<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property> -->
 		<property name="hibernate.current_session_context_class">thread</property>
 
-<!-- 		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property> -->
-
-<!-- 		<property name="hibernate.c3p0.min_size">5</property> -->
-<!-- 		<property name="hibernate.c3p0.max_size">10</property> -->
-<!-- 		<property name="hibernate.c3p0.timeout">1000</property> -->
-<!-- 		<property name="hibernate.c3p0.max_statements">10</property> -->
-<!-- 		<property name="hibernate.c3p0.idle_test_period">3000</property> -->
+		<property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.min_size">1</property>
+		<property name="hibernate.c3p0.max_size">2</property>
+		<property name="hibernate.c3p0.timeout">1000</property>
+		<property name="hibernate.c3p0.max_statements">2</property>
+		<property name="hibernate.c3p0.idle_test_period">10</property>
+		<!-- workaround: http://stackoverflow.com/questions/4588755/hibernate-disabling-contextual-lob-creation-as-createclob-method-threw-error -->
+		<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
 
 
 		<!-- entidades -->
 
+		<mapping class="br.com.caelum.vraptor.backend.model.Test" />
 		<mapping class="br.com.caelum.vraptor.backend.model.Recurso" />
 		<mapping class="br.com.caelum.vraptor.backend.model.Perfil" />
 		<mapping class="br.com.caelum.vraptor.backend.model.Usuario" />

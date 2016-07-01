@@ -102,25 +102,40 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.3.8.Final</version>
-		</dependency>
-		<dependency>
 			<groupId>br.com.caelum.vraptor</groupId>
 			<artifactId>vraptor-hibernate</artifactId>
 			<version>4.0.3</version>
 		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-
+		
 		<dependency>
 			<groupId>c3p0</groupId>
 			<artifactId>c3p0</artifactId>
 			<version>0.9.1.2</version>
+		</dependency>
+<!-- Oracle-specific API: createTemporaryBLOB() and createTemporaryCLOB() see http://www.mchange.com/projects/c3p0/apidocs-oracle-thin/index.html -->		
+		<dependency>
+		    <groupId>com.google.code.maven-play-plugin.com.mchange</groupId>
+		    <artifactId>c3p0-oracle-thin-extras</artifactId>
+		    <version>0.9.5</version>
+		</dependency>
+				
+		
+	    <dependency>
+	        <groupId>org.hibernate</groupId>
+	        <artifactId>hibernate-c3p0</artifactId>
+	        <version>4.3.0.Final</version>
+	    </dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.0.Final</version>
+		</dependency>
+				
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 		</dependency>
 
 		<dependency>

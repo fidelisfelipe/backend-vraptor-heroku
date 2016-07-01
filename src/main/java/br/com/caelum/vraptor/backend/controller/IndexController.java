@@ -1,11 +1,8 @@
 package br.com.caelum.vraptor.backend.controller;
 
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.List;
-import java.util.Vector;
 
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
@@ -22,6 +19,10 @@ import br.com.caelum.vraptor.http.route.Router;
 import br.com.caelum.vraptor.serialization.gson.WithoutRoot;
 import br.com.caelum.vraptor.view.Results;
 
+/**
+ * @author fidelis.guimaraes
+ *
+ */
 @Controller
 public class IndexController {
 
@@ -46,8 +47,9 @@ public class IndexController {
 	/**
 	 * Method of test for Backend online
 	 */
+	@Consumes(value = "application/json")
 	@Get
-	@Path("/")
+	@Path({"/",""})
 	public void test() {
 		result.use(Results.json()).from("Backend Working!", "user").serialize();
 	}
@@ -81,6 +83,12 @@ public class IndexController {
 		result.use(Results.json()).from(features, "features").serialize();
 	}
 	
+	@Consumes(value = "application/json", options = WithoutRoot.class)
+	@Get
+	@Path("/client/info")
+	public void clientsInfo() {
+		
+	}
 	
 	
 }
