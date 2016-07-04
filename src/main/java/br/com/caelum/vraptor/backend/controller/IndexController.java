@@ -44,6 +44,11 @@ public class IndexController {
 		this.result = result;
 		this.req = req;
 	}
+	class Features {
+		private String function = new String();
+		private String rota = new String();
+		private String method = new String();
+	}
 	/**
 	 * Method of test for Backend online
 	 */
@@ -52,11 +57,6 @@ public class IndexController {
 	@Path({"/",""})
 	public void test() {
 		result.use(Results.json()).from("Backend Working!", "user").serialize();
-	}
-	class Features {
-		private String function = new String();
-		private String rota = new String();
-		private String method = new String();
 	}
 	@Consumes(value = "application/json", options = WithoutRoot.class)
 	@Get

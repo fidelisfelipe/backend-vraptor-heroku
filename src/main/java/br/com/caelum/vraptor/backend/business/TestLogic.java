@@ -40,4 +40,8 @@ public class TestLogic {
 	public List<Test> listAll(){
 		return tests.listAll();
 	}
+	
+	public Test load(Test t){
+		return tests.load(t.getId());
+	}
 }

@@ -28,7 +28,7 @@ public class Test implements Serializable{
 	private Date atualizacao = new Date();
 	
 	@Id
-	@SequenceGenerator(name="seq_usuario", sequenceName="seq_test", allocationSize=1)
+	@SequenceGenerator(name="seq_test", sequenceName="seq_test", allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.IDENTITY, generator="seq_test")
 	@Column(name="id_test",nullable=false)
 	public Long getId() {
