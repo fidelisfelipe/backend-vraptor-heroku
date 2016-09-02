@@ -44,4 +44,10 @@ public class TestLogic {
 	public Test load(Test t){
 		return tests.load(t.getId());
 	}
+
+	public Test listDataTest() {
+		Test test = new Test();
+		test.setDescricao("Teste OK");
+		return test;
+	}
 }
