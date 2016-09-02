@@ -5,27 +5,27 @@
 
 		<!-- acesso local -->
 		
-		<property name="hibernate.connection.url">jdbc3:postgresql://localhost/iflybackend</property>
-		<property name="hibernate.connection.username">postgres</property>
-		<property name="hibernate.connection.password">postgres</property>
-
-		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-		<property name="hibernate.hbm2ddl.auto">update</property>
-		<property name="show_sql">true</property>
-		<property name="format_sql">false</property>
-
-		<!-- heroku -->
-
-<!-- 		<property name="hibernate.connection.url">jdbc3:postgresql://ec2-54-243-190-100.compute-1.amazonaws.com/dlqcueu9hspgc</property> -->
-<!-- 		<property name="hibernate.connection.username">dnmnugwmtcfyqm</property> -->
-<!-- 		<property name="hibernate.connection.password">srie-tJGq03qHuzYsULjQ_zhjA</property> -->
+<!-- 		<property name="hibernate.connection.url">jdbc3:postgresql://localhost/iflybackend</property> -->
+<!-- 		<property name="hibernate.connection.username">postgres</property> -->
+<!-- 		<property name="hibernate.connection.password">postgres</property> -->
 
 <!-- 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property> -->
 <!-- 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property> -->
 <!-- 		<property name="hibernate.hbm2ddl.auto">update</property> -->
 <!-- 		<property name="show_sql">true</property> -->
-<!-- 		<property name="format_sql">false</property>		 -->
+<!-- 		<property name="format_sql">false</property> -->
+
+		<!-- heroku -->
+
+		<property name="hibernate.connection.url">jdbc3:postgresql://ec2-54-243-190-100.compute-1.amazonaws.com/dlqcueu9hspgc</property>
+		<property name="hibernate.connection.username">dnmnugwmtcfyqm</property>
+		<property name="hibernate.connection.password">srie-tJGq03qHuzYsULjQ_zhjA</property>
+
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">false</property>		
 
  
 <!-- 		<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property> -->
